@@ -1004,6 +1004,13 @@ SELINUXTYPE=targeted
     f.close()
 #END setup_selinux()
 
+def setup_mpi():
+    f = open('/etc/profile.d/mpi.sh', 'w')
+    f.write("""
+export PATH=/usr/lib64/openmpi/bin:$PATH
+export LD_LIBRARY_PATH=/usr/lib64/openmpi/lib:$LD_LIBRARY_PATH
+""")
+    f.close()
 
 def main():
 
@@ -1040,6 +1047,7 @@ def main():
     setup_nfs_apps_vols()
     setup_nfs_home_vols()
     setup_nfs_sec_vols()
+    setup_mpi()
 
     if INSTANCE_TYPE == "controller":
         mount_nfs_vols()
