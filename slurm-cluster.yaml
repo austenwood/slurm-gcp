@@ -24,8 +24,8 @@ resources:
   type: slurm.jinja
   properties:
     cluster_name            : g1
-    static_node_count       : 2
-    max_node_count          : 10
+    static_node_count       : 1
+    max_node_count          : 4
 
     zone                    : us-central1-b
     region                  : us-central1
@@ -37,9 +37,9 @@ resources:
     #vpc_subnet              : < my-subnet >
     #shared_vpc_host_proj    : < my-shared-vpc-project-name >
 
-    controller_machine_type : n1-standard-2
-    compute_machine_type    : n1-standard-2
-    login_machine_type      : n1-standard-2
+    controller_machine_type : g1-small
+    compute_machine_type    : g1-small
+    login_machine_type      : g1-small
     #login_node_count        : 0
 
     # Optional compute configuration fields
@@ -81,7 +81,7 @@ resources:
     # Optional timer fields
     #suspend_time               : 300
 
-    default_users           : < GCP user email addr, comma separated >
+    default_users           : awood32@mail.csuchico.edu
     #slurm_version           : 19.05-latest
     #default_account         : default
 
