@@ -19,6 +19,20 @@ for line in cluster_conf:
 print(zone)
 # quit()
 
+print("Enabling Compute Engine API")
+cmd = subprocess.Popen("gcloud services enable compute.googleapis.com",
+                       shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+cmd.wait()
+cmd_out = cmd.stdout.read()
+print(cmd_out.decode())
+
+print("Enabling Cloud Deployment Manager V2 API")
+cmd = subprocess.Popen("gcloud services enable deploymentmanager.googleapis.com",
+                       shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+cmd.wait()
+cmd_out = cmd.stdout.read()
+print(cmd_out.decode())
+
 print("Deploying GCP Slurm Cluster")
 cmd = subprocess.Popen("gcloud deployment-manager deployments create google1 --config slurm-cluster.yaml",
                        shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
