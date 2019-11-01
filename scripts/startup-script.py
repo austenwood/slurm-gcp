@@ -216,7 +216,8 @@ def install_packages():
                 'wget',
                 'tmux',
                 'pdsh',
-                'openmpi'
+                'openmpi',
+                'openmpi-devel'
                ]
 
     while subprocess.call(['yum', 'install', '-y'] + packages):
