@@ -86,6 +86,7 @@ print(cmd_err.decode())
 
 
 def check_squeue():
+    string = "JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)"
     cmd = subprocess.Popen("gcloud compute ssh g1-login1 --zone="+zone+" --command 'squeue'",
                            shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     cmd.wait()
@@ -93,7 +94,8 @@ def check_squeue():
     cmd_err = cmd.stderr.read()
     print(cmd_out.decode())
     print(cmd_err.decode())
-    if cmd_out.decode() != "             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)":
+    cmd_out = cmd_out.decode().strip()
+    if cmd_out != string:
         print("Waiting for job to finish")
         time.sleep(10)
         check_squeue()
