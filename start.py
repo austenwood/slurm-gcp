@@ -113,9 +113,9 @@ answer = None
 while answer not in ("yes", "no"):
     answer = input(
         "Job executed successfully. Would you like to delete the deployment?\n Enter yes or no:")
-    if answer == "yes":
+    if answer == "no":
         quit()
-    elif answer == "no":
+    elif answer == "yes":
         print("Destroying Slurm Cluster")
         cmd = subprocess.Popen("gcloud deployment-manager deployments delete google1 -q",
                                shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
