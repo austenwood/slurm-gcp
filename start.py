@@ -94,9 +94,9 @@ def check_squeue():
     print(cmd_out.decode())
     print(cmd_err.decode())
     if cmd_out.decode() != "             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)":
-    print("Waiting for job to finish")
-    time.sleep(10)
-    check_squeue()
+        print("Waiting for job to finish")
+        time.sleep(10)
+        check_squeue()
 
 
 check_squeue()
