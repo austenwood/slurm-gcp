@@ -14,7 +14,7 @@ srun --nodes=${SLURM_NNODES} bash -c 'hostname'
 echo "Launch helloworld with srun"
 
 #The PMI library is necessary for srun
-# export I_MPI_PMI_LIBRARY=/usr/lib64/libpmi.so
+export I_MPI_PMI_LIBRARY=/usr/lib64/libpmi.so
 srun ./hello
 #
 echo "All Done!"
