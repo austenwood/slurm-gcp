@@ -93,12 +93,13 @@ def check_squeue():
     cmd_err = cmd.stderr.read()
     print(cmd_out.decode())
     print(cmd_err.decode())
-
-
-if cmd_out.decode() != "             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)":
+    if cmd_out.decode() != "             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)":
     print("Waiting for job to finish")
     time.sleep(10)
     check_squeue()
+
+
+check_squeue()
 
 cmd = subprocess.Popen("gcloud compute scp g1-login1:~/code/test-srun.out . --zone=" +
                        zone, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
