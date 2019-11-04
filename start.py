@@ -103,7 +103,7 @@ def check_squeue():
 
 check_squeue()
 
-cmd = subprocess.Popen("gcloud compute scp g1-login1:~/code/test-srun.out . --zone=" +
+cmd = subprocess.Popen("gcloud compute scp g1-login1:~/code/results.out . --zone=" +
                        zone, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 cmd.wait()
 cmd_out = cmd.stdout.read()

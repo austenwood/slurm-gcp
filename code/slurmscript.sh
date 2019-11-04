@@ -1,7 +1,7 @@
 #!/bin/bash
 #
-#SBATCH --job-name=gameoflife
-#SBATCH --output=output.txt
+#SBATCH --job-name=helloworld
+#SBATCH --output=results.out
 #
 #SBATCH --nodes=2
 
