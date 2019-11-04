@@ -114,7 +114,7 @@ print(cmd_err.decode())
 answer = None
 while answer not in ("yes", "no"):
     answer = input(
-        "Job executed successfully. Would you like to delete the deployment?\n Enter yes or no:")
+        "Job executed successfully. Would you like to delete the deployment?\n Enter yes or no: ")
     if answer == "no":
         quit()
     elif answer == "yes":
